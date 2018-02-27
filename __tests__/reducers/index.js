@@ -11,7 +11,7 @@ describe('generateJokeReducer', () => {
     expect(generateJokeReducer({}, {type: null})).toEqual({});
   });
 
-  it('successfully add new joke to list', () => {
+  it('Should successfully add new joke to list', () => {
     const {joke, id} = sampleJoke;
     action = {
       type: 'ADD_JOKE',
@@ -24,5 +24,4 @@ describe('generateJokeReducer', () => {
       }
     });
   });
-
 });
