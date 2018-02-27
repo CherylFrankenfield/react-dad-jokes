@@ -8,7 +8,7 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    resolve(__dirname, "src", "index.jsx")
+    resolve(__dirname, 'src', 'index.jsx')
   ],
 
   output: {
@@ -33,25 +33,25 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        enforce: "pre",
-        loader: "eslint-loader",
+        enforce: 'pre',
+        loader: 'eslint-loader',
         exclude: /node_modules/,
         options: {
           emitWarning: true,
-          configFile: "./.eslintrc.json"
-          }
-        },
-        {
+          configFile: './.eslintrc.json'
+        }
+      },
+      {
         test: /\.jsx?$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
           presets: [
-            ["es2015", {"modules": false}],
-            "react",
+            ['es2015', {'modules': false}],
+            'react',
           ],
           plugins: [
-            "react-hot-loader/babel"
+            'react-hot-loader/babel'
           ]
         }
       },
@@ -62,14 +62,14 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'css-loader',
-        exclude: resolve(__dirname, "src/styles/styles.css"),
+        exclude: resolve(__dirname, 'src/styles/styles.css'),
         options: {
-         modules: true,
-         localIdentName: '[name]__[local]___[hash:base64:5]'
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
         }
       },
       {
-        test: resolve(__dirname, "src/styles/styles.css"),
+        test: resolve(__dirname, 'src/styles/styles.css'),
         loader: 'css-loader'
       }
     ]
@@ -81,8 +81,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template:'template.ejs',
       appMountId: 'react-app-root',
-      title: 'React Help Queue',
-      filename: resolve(__dirname, "build", "index.html"),
+      title: 'Dad Jokes',
+      filename: resolve(__dirname, 'build', 'index.html'),
     }),
   ]
 };
