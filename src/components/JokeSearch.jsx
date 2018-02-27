@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { fetchJoke } from './../actions';
 
 function JokeSearch( { dispatch }){
   let input;
@@ -11,7 +12,7 @@ function JokeSearch( { dispatch }){
         if (!input.value.trim()) {
           return;
         }
-        dispatch();
+        dispatch(fetchJoke(input.value.trim()));
         input.value = '';
       }}>
         <input placeholder="Joke Title" ref={node => {
@@ -19,7 +20,11 @@ function JokeSearch( { dispatch }){
         }}></input>
         <button>Search</button>
       </form>
+      <button onClick={dispatch(fetchJoke)}>Click for a jokeList
+      </button>
     </div>
+
+
   );
 }
 

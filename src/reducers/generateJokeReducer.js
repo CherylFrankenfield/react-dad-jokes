@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { initialState, types } = constants;
 
-const generateJokeReducer = (state = {}, action) => {
+const generateJokeReducer = (state = initialState, action) => {
   switch (action.type) {
   case types.ADD_JOKE:
     const {joke,id} = action;
