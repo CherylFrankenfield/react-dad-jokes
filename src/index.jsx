@@ -8,6 +8,10 @@ import generateJokeReducer from './reducers/generateJokeReducer';
 
 const store = createStore(generateJokeReducer, applyMiddleware(thunkMiddleware));
 
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

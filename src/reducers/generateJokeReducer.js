@@ -1,16 +1,20 @@
 import constants from './../constants';
-const { initialState, types } = constants;
+const { types } = constants;
 
-const generateJokeReducer = (state = initialState, action) => {
+const generateJokeReducer = (state = {}, action) => {
+  let newJokesEntry;
+  let newJokesByStateSlice;
   switch (action.type) {
-  case types.ADD_JOKE:
-    const {joke,id} = action;
-    let newState = Object.assign({}, state, {
-      [id]: {
-        joke: joke
-      }
+  case types.RECEIVE_JOKE:
+    newJokesEntry = {
+      setup: action.setup,
+      punchline: action.punchline,
+      id: action.id
+    };
+    newJokesByStateSlice = Object.assign({}, state, {
+      [action.id]: newJokesEntry
     });
-    return newState;
+    return newJokesByStateSlice;
   default:
     return state;
   }
